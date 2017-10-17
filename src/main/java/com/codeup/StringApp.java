@@ -6,15 +6,17 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class StringApp {
 
-    public String reversedInPlaceCase(String userInput) {
+    public String reverseEachWord(String userInput) {
 
         System.out.print(userInput + " reversed in place is: ");
         String[] stringArray = userInput.split(" ");
+
         for (int i = 0; i < stringArray.length; i++) {
-            String reversedInPlace = new StringBuilder(stringArray[i]).reverse().toString();
-            System.out.print(reversedInPlace + " ");
+            String reversedInput = StringUtils.reverse(stringArray[i]);
+            System.out.print(reversedInput + " ");
         }
         return userInput;
+
     }
 
     public static void main(String[] args) {
@@ -41,22 +43,26 @@ public class StringApp {
         String swapCases = StringUtils.swapCase(userInput);
         System.out.println(userInput + " with cases swapped: " + swapCases);
 
-        String reverseString = StringUtils.reverse(userInput);
-        System.out.println((userInput + " reversed is: " + reverseString));
+        String reverseInput = StringUtils.reverse(userInput);
+        System.out.println((userInput + " reversed is: " + reverseInput));
 
 
         System.out.print(userInput + " reversed in place is: ");
         String[] stringArray = userInput.split(" ");
         for (int i = 0; i < stringArray.length; i++) {
-            String reversedInPlace = new StringBuilder(stringArray[i]).reverse().toString();
+            String reversedInPlace = StringUtils.reverse(stringArray[i]);
             System.out.print(reversedInPlace + " ");
         }
+//              OR using StringBuilder:
+//              String reversedInPlace = new StringBuilder(stringArray[i]).reverse().toString();
+//              System.out.print(reversedInPlace + " ");
 
 // ================================================== CALLING THE METHOD ===============================================
 
         System.out.println(" \n====================== calling the method ============================ ");
+        //creating a new instance of StringApp...calling a method on that instance. What if it's a Static method?
         StringApp sa = new StringApp();
-        sa.reversedInPlaceCase(userInput);
+        sa.reverseEachWord(userInput);
     }
 }
 
